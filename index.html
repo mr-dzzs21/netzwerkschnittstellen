@@ -5,6 +5,74 @@
   <title>Netzwerk-Technologien im Überblick</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------- */
+/* Netzwerkkarten-Sektion (unten auf der Seite) */
+/* ------------------------------------------- */
+
+.nic-section {
+  margin-top: 60px;
+  padding: 40px 20px;
+  background: #11131a;
+  border: 1px solid #2a2e39;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 28px rgba(0, 255, 170, 0.08);
+}
+
+.nic-title {
+  font-size: 1.6rem;
+  color: #44d9ff;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.nic-text {
+  color: #cdd2d9;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 26px;
+}
+
+.nic-image {
+  width: 70%;
+  max-width: 580px;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 22px rgba(68, 217, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* sanfter Hover-Effekt */
+.nic-image:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 32px rgba(68, 217, 255, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* Grundlayout */
     * {
       box-sizing: border-box;
@@ -491,6 +559,28 @@
 
     <!-- Footer mit euren Namen -->
     <footer>
+
+
+
+
+
+
+
+<!-- Netzwerkkarten-Sektion -->
+<section class="nic-section">
+  <h2 class="nic-title">Beispiel: Physische Netzwerkkarte (Ethernet)</h2>
+  <p class="nic-text">Hier siehst du eine echte PCIe-Netzwerkkarte (LAN/Ethernet). 
+    Sie wird in den PCIe-Slot eines PCs eingebaut und ermöglicht kabelgebundene Netzwerkverbindungen.</p>
+
+  <img src="netzwerkkarte.png" alt="Netzwerkkarte" class="nic-image">
+</section>
+
+
+
+
+
+
+
       Projektarbeit für die Messe<br>
       <div class="names">Diyar • Kevin • Leon • Florian</div>
     </footer>
