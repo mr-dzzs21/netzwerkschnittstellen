@@ -11,53 +11,265 @@
 
 
 
-
-
-
-
 /* ------------------------------------------- */
-/* Netzwerkkarten-Sektion (unten auf der Seite) */
+/* LAN-Hardware-Sektion                        */
 /* ------------------------------------------- */
 
 .nic-section {
   margin-top: 60px;
-  padding: 40px 20px;
+  padding: 40px 24px 46px;
   background: #11131a;
   border: 1px solid #2a2e39;
   border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 0 28px rgba(0, 255, 170, 0.08);
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.6);
 }
 
 .nic-title {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #44d9ff;
   margin-bottom: 14px;
   font-weight: 600;
+  text-align: center;
 }
 
 .nic-text {
   color: #cdd2d9;
   font-size: 1rem;
-  max-width: 700px;
+  max-width: 820px;
   margin: 0 auto 26px;
+  text-align: center;
+}
+
+.nic-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.nic-figure {
+  flex: 1 1 320px;
+  max-width: 520px;
+  text-align: center;
 }
 
 .nic-image {
-  width: 70%;
-  max-width: 580px;
+  width: 100%;
+  max-width: 520px;
   border-radius: 14px;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 10px;
   box-shadow: 0 0 22px rgba(68, 217, 255, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* sanfter Hover-Effekt */
+/* sanfter Hover aufs Bild */
 .nic-image:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 32px rgba(68, 217, 255, 0.4);
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(68, 217, 255, 0.45);
 }
+
+.nic-caption {
+  font-size: 0.9rem;
+  color: #9ea4b3;
+}
+
+.nic-info {
+  flex: 1 1 280px;
+  max-width: 520px;
+}
+
+.nic-subtitle {
+  font-size: 1.1rem;
+  color: #e3e7f5;
+  margin-bottom: 10px;
+}
+
+.nic-parts {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d5d9e5;
+}
+
+.nic-parts li {
+  margin-bottom: 8px;
+}
+
+.nic-parts .label {
+  font-weight: 600;
+  color: #44d9ff;
+}
+
+/* Tabelle mit technischen Daten */
+.nic-specs {
+  margin-top: 10px;
+}
+
+.nic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-top: 8px;
+}
+
+.nic-table th,
+.nic-table td {
+  border: 1px solid #2a2e39;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.nic-table th {
+  background: #191c27;
+  color: #e4e7f5;
+}
+
+.nic-table tr:nth-child(even) td {
+  background: #151822;
+}
+
+.nic-table tr:nth-child(odd) td {
+  background: #10121a;
+}
+
+/* Responsiv */
+@media (max-width: 800px) {
+  .nic-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nic-figure,
+  .nic-info {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container um Bild und Hotspots */
+.nic-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Grundstil für Hotspots (unsichtbare Zonen) */
+.hotspot {
+  position: absolute;
+  background: rgba(255, 255, 255, 0); /* unsichtbar */
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Standard Übergang fürs Bild */
+#nicImage {
+  transition: transform 0.3s ease;
+}
+
+/* Hover-Effekt: Bild zoomt leicht rein */
+.hotspot:hover ~ #nicImage {
+  transform: scale(1.12);
+}
+
+/* ------------------------------- */
+/* HOTSPOT-POSITIONEN               */
+/* (angepasst auf DEIN Bild oben)   */
+/* ------------------------------- */
+
+/* RJ45-Port (links) */
+.hotspot-rj45 {
+  width: 140px;
+  height: 140px;
+  top: 120px;
+  left: 25px;
+}
+
+/* ICs (mittig unten) */
+.hotspot-ics {
+  width: 200px;
+  height: 130px;
+  top: 230px;
+  left: 350px;
+}
+
+/* PCIe-Schnittstelle (ganz unten Mitte) */
+.hotspot-pcie {
+  width: 260px;
+  height: 120px;
+  bottom: 10px;
+  left: 300px;
+}
+
+/* Ethernet-Controller IC (mittig rechts) */
+.hotspot-controller {
+  width: 160px;
+  height: 150px;
+  top: 180px;
+  left: 640px;
+}
+
+/* Schwingquarz (Taktgeber) – oben rechts */
+.hotspot-quartz {
+  width: 160px;
+  height: 130px;
+  top: 80px;
+  right: 260px;
+}
+
+/* Inductor (rechts oben, runde Spule) */
+.hotspot-inductor {
+  width: 150px;
+  height: 150px;
+  top: 100px;
+  right: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -566,26 +778,108 @@
 
 
 
-<!-- Netzwerkkarten-Sektion -->
-<section class="nic-section">
-  <h2 class="nic-title">Beispiel: Physische Netzwerkkarte (Ethernet)</h2>
-  <p class="nic-text">Hier siehst du eine echte PCIe-Netzwerkkarte (LAN/Ethernet). 
-    Sie wird in den PCIe-Slot eines PCs eingebaut und ermöglicht kabelgebundene Netzwerkverbindungen.</p>
 
-  <img src="20251119_121633.png" alt="Netzwerkkarte" class="nic-image">
+
+<div class="nic-image-container">
+  
+  <!-- Bild -->
+  <img src="Network card.drawio.png" alt="Netzwerkkarte" id="nicImage" class="nic-image">
+
+  <!-- Hotspots -->
+  <div class="hotspot hotspot-rj45"></div>
+  <div class="hotspot hotspot-ics"></div>
+  <div class="hotspot hotspot-pcie"></div>
+  <div class="hotspot hotspot-controller"></div>
+  <div class="hotspot hotspot-quartz"></div>
+  <div class="hotspot hotspot-inductor"></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- LAN-Hardware-Sektion -->
+<section class="nic-section" id="lan-hardware">
+  <h2 class="nic-title">LAN-Hardware im Detail: Physische Netzwerkkarte (Ethernet)</h2>
+  <p class="nic-text">
+    Eine Netzwerkkarte (NIC – Network Interface Card) verbindet den PC mit dem kabelgebundenen LAN (Ethernet).
+    Sie wird in einen PCIe-Slot des Mainboards gesteckt und übernimmt die Umsetzung der Daten
+    vom Computer in elektrische Signale auf dem Netzwerkkabel und umgekehrt.
+  </p>
+
+  <div class="nic-layout">
+    <figure class="nic-figure">
+
+      <!-- Bild + Hotspots (richtige Stelle!) -->
+      <div class="nic-image-container">
+        <img src="Network card.drawio.png" alt="Beschriftete PCIe-Netzwerkkarte" id="nicImage" class="nic-image">
+
+        <div class="hotspot hotspot-rj45"></div>
+        <div class="hotspot hotspot-ics"></div>
+        <div class="hotspot hotspot-pcie"></div>
+        <div class="hotspot hotspot-controller"></div>
+        <div class="hotspot hotspot-quartz"></div>
+        <div class="hotspot hotspot-inductor"></div>
+      </div>
+
+      <figcaption class="nic-caption">
+        Beschriftete PCIe-Gigabit-Netzwerkkarte mit wichtigen Bauteilen.
+      </figcaption>
+    </figure>
+
+    <div class="nic-info">
+      <h3 class="nic-subtitle">Wichtige Bauteile</h3>
+      <ul class="nic-parts">
+        <li><span class="label">Ethernet-Port (RJ45):</span> Anschluss für das Netzwerkkabel.</li>
+        <li><span class="label">PCIe-Schnittstelle:</span> Verbindung zur Hauptplatine.</li>
+        <li><span class="label">Ethernet-Controller (IC):</span> Verarbeitet Frames & Protokolle.</li>
+        <li><span class="label">Integrierte Schaltungen (ICs):</span> Zusätzliche Logik & PHY.</li>
+        <li><span class="label">Schwingquarz / Taktgeber:</span> Erzeugt den Übertragungstakt.</li>
+        <li><span class="label">Inductor (Spule):</span> Filtert Spannungen / signalglättend.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nic-specs">
+    <h3 class="nic-subtitle">Technische Daten</h3>
+    <table class="nic-table">
+      <tr><th>Eigenschaft</th><th>Typischer Wert</th></tr>
+      <tr><td>Speed</td><td>1 Gbit/s (Gigabit Ethernet)</td></tr>
+      <tr><td>PCIe</td><td>x1 (kompatibel mit x4/x8/x16)</td></tr>
+      <tr><td>Kabel</td><td>Cat5e, Cat6, Cat6a</td></tr>
+      <tr><td>Max. Länge</td><td>100 m pro Segment</td></tr>
+      <tr><td>Stecker</td><td>RJ45</td></tr>
+    </table>
+  </div>
 </section>
 
-
-
-
-
-
-
-      Projektarbeit für die Messe<br>
-      <div class="names">Diyar • Kevin • Leon • Florian</div>
-    </footer>
-
-  </div>
 
   <!-- Dein Chatbot (Chatling) -->
   <script>
